@@ -1,4 +1,4 @@
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 
 from nefosta.models.article import Article
 
@@ -14,3 +14,8 @@ class IndexView(TemplateView):
         })
 
         return ctx
+
+
+class ArticleListView(ListView):
+    model = Article
+    template_name = "nefosta/article_list"

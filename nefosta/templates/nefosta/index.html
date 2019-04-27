@@ -1,5 +1,6 @@
 {% extends 'utils/base.html' %}
 {% block body%}
+{% include "utils/brand_title.html"%}
 <div class="carousel slide carousel-fade carousel-fade carousel-fade" data-ride="carousel" id="carousel-2">
   <div class="carousel-inner" role="listbox">
     <div class="carousel-item"><img class="w-100 d-block" src="/assets/img/img1 1200x400.jpg" alt="Slide Image"
@@ -72,8 +73,8 @@
       <hr>
       <h2 class="text-center" style="font-family:'Averia Serif Libre', cursive;color:#141d70;margin-bottom:-28px;">
         Articles</h2>
-      <h2 class="text-center" style="font-family:'Averia Serif Libre', cursive;color:#141d70;"><a href="/articles/"
-          style="font-size:21px;">View All Articles</a></h2>
+      <h2 class="text-center" style="font-family:'Averia Serif Libre', cursive;color:#141d70;"><a
+          href="{% url 'nefosta:article_list' %}" style="font-size:21px;">View All Articles</a></h2>
     </div>
     <div class="row articles" style="margin-top:-20px;" id="articles">
       {% for article in articles%}
