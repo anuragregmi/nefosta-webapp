@@ -112,3 +112,6 @@ venv.bak/
 
 # settings file
 config/settings/env.py
+
+# media files and collected static files
+/public
