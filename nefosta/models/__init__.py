@@ -4,3 +4,4 @@ from .career import Career
 from .contact import Contact
 from .gallery import Album, Photo
 from .publication import Publication
+from .event import Event

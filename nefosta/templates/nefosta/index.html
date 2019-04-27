@@ -28,22 +28,11 @@
           <p style="font-size:16px;font-family:'Averia Serif Libre', cursive;color:#141d70;margin-left:20px;">NEWS
             &amp; EVENTS</p>
           <ul class="list-group">
-            <li class="list-group-item list-group-item-light disabled"
-              style="height:40px;background-color:rgba(0,25,255,0);"><a href="#"
-                style="font-family:'Source Sans Pro', sans-serif;font-size:17px;color:rgb(0,0,0);margin-left:10px;">Ut
-                vehicula rhoncus</a></li>
-            <li class="list-group-item list-group-item-light disabled"
-              style="height:40px;background-color:rgba(0,25,255,0);"><a href="#"
-                style="font-family:'Source Sans Pro', sans-serif;font-size:17px;color:rgb(0,0,0);margin-left:10px;">Ut
-                vehicula rhoncus</a></li>
-            <li class="list-group-item list-group-item-light disabled"
-              style="height:40px;background-color:rgba(0,25,255,0);"><a href="#"
-                style="font-family:'Source Sans Pro', sans-serif;font-size:17px;color:rgb(0,0,0);margin-left:10px;">Ut
-                vehicula rhoncus</a></li>
-            <li class="list-group-item list-group-item-light disabled"
-              style="height:40px;background-color:rgba(0,25,255,0);margin-bottom:21px;"><a href="#"
-                style="font-family:'Source Sans Pro', sans-serif;font-size:17px;color:rgb(0,0,0);margin-left:10px;">Ut
-                vehicula rhoncus</a></li>
+            {% for event in events %}
+            {% include 'utils/event_box.html' %}
+            {% empty %}
+            No events
+            {% endfor %}
           </ul>
         </div><a href="/news-and-envents/"
           style="font-family:'Averia Serif Libre', cursive;color:#126ea2;margin-left:-13px;">View All..</a>
@@ -79,6 +68,8 @@
     <div class="row articles" style="margin-top:-20px;" id="articles">
       {% for article in articles%}
       {% include "utils/article_box.html" %}
+      {% empty %}
+      No articles
       {% endfor %}
     </div>
   </div>

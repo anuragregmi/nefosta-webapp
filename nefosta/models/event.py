@@ -9,18 +9,17 @@ from config.settings.base import STATIC_URL
 User = get_user_model()
 
 
-class Article(models.Model):
+class Event(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
 
     photo = models.ImageField(blank=True, null=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
 
     posted_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"{self.title} - {self.author.username}"
+        return f"{self.title}"
 
     @property
     def photo_url(self):
