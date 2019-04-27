@@ -5,8 +5,10 @@
 {% block body%}
 <div class="container">
   {% include "utils/brand_title.html" with brand_title="Articles"%}
-  {% for article in object_list%}
-  {% include "utils/article_box.html" %}
-  {% endfor %}
+  <div class="row articles" style="margin-top:-20px;" id="articles">
+    {% for article in object_list%}
+    {% include "utils/article_box.html" %}
+    {% endfor %}
+  </div>
 </div>
 {% endblock %}
