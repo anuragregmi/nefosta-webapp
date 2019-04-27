@@ -1,0 +1,45 @@
+{% extends 'utils/base.html' %}
+{% load humanize %}
+
+{% block title%}{{object.title}}{% endblock %}
+
+{% block body%}
+<div class="article-dual-column">
+  <div class="container">
+    {% include "utils/brand_title.html"%}
+    <div class="row">
+      <div class="col-md-10 col-lg-7 offset-md-1 offset-lg-0">
+        <h1 class="text-center" style="font-family:'Averia Serif Libre', cursive;color:rgb(0,0,0);" id="title">
+          {{object.title}}</h1>
+        <p class="text-center">
+          <span class="date" style="margin-left:17px;">
+            {{ object.posted_on|naturaltime }}
+          </span>
+        </p><img class="img-fluid" id="image" src="{{object.photo.url}}"
+          style="height:319px;margin-bottom:29px;margin-top:24px;">
+        <div class="text">
+          <p id="content">
+            {{ object.content }}
+          </p>
+        </div><img src="/assets/img/abstract-user-flat-2.png"
+          style="margin-right:8px;height:69px;margin-top:22px;"><span class="by"
+          style="color:#141d70;font-size:17px;">by</span><a href="User Profile others view.html"
+          style="color:#141d70;font-weight:bold;font-size:18px;margin-left:4px;"
+          id="author">{{object.author.get_full_name}}</a>
+      </div>
+      <div class="col-md-10 col-lg-3 offset-md-1">
+        <div class="toc">
+          <p style="color:rgb(0,0,0);font-size:17px;font-family:'Averia Serif Libre', cursive;margin-top:21px;">news
+            &amp; articles</p>
+          <ul>
+            {% for article in related_articles %}
+            <li><a href="{% url 'nefosta:article_list' article.id %}" style="font-size:15px;">{{ article.title }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div><a href="{% url 'nefosta:article_list' %}" style="color:#141d70;">View All</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

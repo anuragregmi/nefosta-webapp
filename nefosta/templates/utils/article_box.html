@@ -8,7 +8,7 @@
   <p class="description" style="font-family:'Source Sans Pro', sans-serif;font-size:15px;color:rgb(0,0,0);">
     {{ article.content }}
   </p>
-  <a href="/articles/{{article.id}}" class="action">
+  <a href="{% url 'nefosta:article_detail' article.id%}" class="action">
     <i class="fa fa-angle-double-right" style="font-size:34px;"></i>
   </a>
 </div>
