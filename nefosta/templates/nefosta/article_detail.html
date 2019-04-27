@@ -11,21 +11,24 @@
       <div class="col-md-10 col-lg-7 offset-md-1 offset-lg-0">
         <h1 class="text-center" style="font-family:'Averia Serif Libre', cursive;color:rgb(0,0,0);" id="title">
           {{object.title}}</h1>
-        <p class="text-center">
-          <span class="date" style="margin-left:17px;">
-            {{ object.posted_on|naturaltime }}
+        <p class="text-right">
+          <span class="h5">
+            - {{ object.posted_on|naturaltime }}
           </span>
-        </p><img class="img-fluid" id="image" src="{{object.photo.url}}"
+        </p><img class="img-fluid" id="image" src="{{object.photo_url}}"
           style="height:319px;margin-bottom:29px;margin-top:24px;">
         <div class="text">
           <p id="content">
-            {{ object.content }}
+            {{ object.content|linebreaks }}
           </p>
-        </div><img src="/assets/img/abstract-user-flat-2.png"
-          style="margin-right:8px;height:69px;margin-top:22px;"><span class="by"
-          style="color:#141d70;font-size:17px;">by</span><a href="User Profile others view.html"
-          style="color:#141d70;font-weight:bold;font-size:18px;margin-left:4px;"
-          id="author">{{object.author.get_full_name}}</a>
+        </div>
+        <div style="line-height: 50px; height: 50px; text-align: left;">
+          <img src="{{object.author.profile_picture_url}}" style="margin-right:8px;height:50px;width:50px;"
+            class="rounded-circle">
+          <span class="by" style="color:#141d70;font-size:17px;">by</span>
+          <a href="User Profile others view.html" style="color:#141d70;font-weight:bold;font-size:18px;"
+            id="author">{{object.author.get_full_name}}</a>
+        </div>
       </div>
       <div class="col-md-10 col-lg-3 offset-md-1">
         <div class="toc">
@@ -33,7 +36,7 @@
             &amp; articles</p>
           <ul>
             {% for article in related_articles %}
-            <li><a href="{% url 'nefosta:article_list' article.id %}" style="font-size:15px;">{{ article.title }}</a>
+            <li><a href="{% url 'nefosta:article_detail' article.id %}" style="font-size:15px;">{{ article.title }}</a>
             </li>
             {% endfor %}
           </ul>

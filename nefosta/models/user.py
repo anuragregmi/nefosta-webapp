@@ -1,3 +1,6 @@
+import os
+
+from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
@@ -13,3 +16,8 @@ class User(AbstractUser):
         null=True,
         blank=True
     )
+
+    @property
+    def profile_picture_url(self):
+        return self.profile_picture.url if self.profile_picture else \
+            os.path.join(settings.STATIC_URL, 'img/abstract-user-flat-2.png')
