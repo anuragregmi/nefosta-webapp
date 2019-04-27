@@ -1,7 +1,6 @@
 from django.urls import path
 
-from nefosta.views.nefosta import ArticleDetailView, ArticleListView
-
+from .views.article import ArticleDetailView, ArticleListView
 from .views.nefosta import IndexView
 
 app_name = "nefosta"
