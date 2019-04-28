@@ -19,6 +19,9 @@ class Article(models.Model):
     posted_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        ordering = ('-posted_on', 'title')
+
     def __str__(self):
         return f"{self.title} - {self.author.username}"
 
