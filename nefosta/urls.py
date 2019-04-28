@@ -1,10 +1,11 @@
 from django.urls import path
 
-from .views.nefosta import AboutView
-from .views.events import EventListView, EventDetailView
+from nefosta.views.link import LinkCategoryDetailView
+
 from .views.article import ArticleDetailView, ArticleListView
+from .views.events import EventDetailView, EventListView
+from .views.nefosta import AboutView, IndexView
 from .views.publication import PublicationDetailView, PublicationListView
-from .views.nefosta import IndexView
 
 app_name = "nefosta"
 
@@ -24,4 +25,7 @@ urlpatterns = [
     path("publications/", PublicationListView.as_view(), name="publication_list"),
     path("publications/<int:pk>/", PublicationDetailView.as_view(),
          name="publication_detail"),
+
+    path("links/<int:cat_id>/", LinkCategoryDetailView.as_view(),
+     name="link_category_detail")
 ]

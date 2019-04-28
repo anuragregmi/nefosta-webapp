@@ -1,0 +1,37 @@
+{% extends 'utils/base.html' %}
+
+{% block title%}{{category.title}}{% endblock %}
+
+{% block body%}
+<div class="article-dual-column py-3">
+  <div class="container">
+    {% include "utils/brand_title.html"%}
+    <div class="row">
+      <div class="col-md-10 col-lg-7 offset-md-1 offset-lg-0" style="border-right-style:solid;">
+        <div role="tablist" id="accordion-1">
+          {% for link in object_list %}
+          {% include 'utils/link_box.html' %}
+          {% empty %}
+          <p>No links under this category.</p>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="col-md-10 col-lg-3 offset-md-1">
+        <div class="toc">
+          <p style="color:rgb(0,0,0);font-size:17px;font-family:'Averia Serif Libre', cursive;margin-top:21px;">
+            Related Links</p>
+          <ul>
+            {% for link_category in related_categories %}
+            <li>
+              <a href="{% url 'nefosta:link_category_detail' link_category.id %}" style="font-size:15px;">
+                {{ link_category.title }}
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

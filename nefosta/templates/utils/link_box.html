@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="card-header" role="tab" style="background-color:rgba(238,244,247,0.4);">
+    <h5 class="mb-0">
+      <a data-toggle="collapse" aria-expanded="false" aria-controls="accordion-1 .item-1" href="div#accordion-1 .item-1"
+        style="font-family:'Averia Serif Libre', cursive;color:#000000;">
+        {{link.title}}
+      </a>
+    </h5>
+  </div>
+  <div class="collapse item-1" role="tabpanel" data-parent="#links">
+    <div class="card-body">
+      <p class="card-text">{{ link.content }}</p><a href="{{ link.link }}" style="color:#126ea2;font-size:17px;"
+        target="_blank">{{ link.link }}</a>
+    </div>
+  </div>
+</div>

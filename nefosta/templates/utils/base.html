@@ -66,13 +66,15 @@
               style="">Publications</a>
           </li>
           <li class="dropdown"><a class="dropdown-toggle nav-link navbar-font" data-toggle="dropdown"
-              aria-expanded="false" href="#">Others</a>
-            <div class="dropdown-menu" role="menu"><a class="dropdown-item disabled" role="presentation"
-                href="/others/education.html">Education</a><a class="dropdown-item disabled" role="presentation"
-                href="/others/resources.html">Online Resources</a><a class="dropdown-item disabled" role="presentation"
-                href="/others/funding-oppertunities.html">Funding Oppertunities</a><a class="dropdown-item disabled"
-                role="presentation" href="/others/food-colleges.html">Food Technology
-                Colleges in Nepal</a></div>
+              aria-expanded="false" href="#">Links</a>
+            <div class="dropdown-menu" role="menu">
+              {% for link_category in link_categories %}
+              <a class="dropdown-item" role="presentation"
+                href="{% url 'nefosta:link_category_detail' link_category.id%}">{{link_category.title}}</a>
+              {% empty %}
+              <a class="dropdown-item disabled" role="presentation" href="#">No Links</a>
+              {% endfor %}
+            </div>
           </li>
           <li class="nav-item" role="presentation">
             <a class="nav-link navbar-font" href="/careers/">Career</a>
