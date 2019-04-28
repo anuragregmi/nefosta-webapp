@@ -6,6 +6,7 @@ from .views.article import ArticleDetailView, ArticleListView
 from .views.events import EventDetailView, EventListView
 from .views.nefosta import AboutView, IndexView
 from .views.publication import PublicationDetailView, PublicationListView
+from .views.career import CareerDetailView, CareerListView
 
 app_name = "nefosta"
 
@@ -27,5 +28,9 @@ urlpatterns = [
          name="publication_detail"),
 
     path("links/<int:cat_id>/", LinkCategoryDetailView.as_view(),
-     name="link_category_detail")
+         name="link_category_detail"),
+
+    path("careers/", CareerListView.as_view(), name="career_list"),
+    path("careers/<int:pk>/", CareerDetailView.as_view(),
+         name="career_detail"),
 ]

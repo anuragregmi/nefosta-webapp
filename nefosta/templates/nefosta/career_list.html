@@ -1,0 +1,14 @@
+{% extends 'utils/base.html' %}
+
+{% block title%} Career Opportunities {% endblock %}
+
+{% block body %}
+{% include "utils/brand_title.html" with brand_title="CAREER OPPORTUNITIES"%}
+<div class="container py-3">
+  {% for career in object_list %}
+  {% include 'utils/career_box.html' %}
+  {% empty %}
+  Nothing here at the moment.
+  {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,8 @@
+ <div class="jumbotron" style="background-color:#ffffff">
+   <h1 style="font-family:'Averia Serif Libre', cursive;">
+     {{career.heading}}</h1>
+   <p style="font-family:'Source Sans Pro', sans-serif;font-size:17px;padding-left:39px;">
+     {{career.description|linebreaks}}</p>
+   <p><a class="btn btn-primary" role="button" href="{% url 'nefosta:career_detail' career.id%}"
+       style="background-color:#a6c4e6;">Read more</a></p>
+ </div>

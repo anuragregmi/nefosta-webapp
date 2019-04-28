@@ -1,0 +1,17 @@
+{% extends 'utils/base.html' %}
+{% block title%}{{  object.heading }}{% endblock %}
+
+{% block body %}
+{% include 'utils/brand_title.html' %}
+<div class="container py-3">
+  <div class="text">
+    <h2 style="font-family:'Averia Serif Libre', cursive;color:#141d70;font-size:24px;">
+      {{ object.heading }}
+    </h2>
+    <p style="font-family:'Source Sans Pro', sans-serif;font-size:19px;color:rgb(0,0,0);">
+      {{ object.description|linebreaks }}
+    </p>
+  </div><a href="{{object.link_to_site}}" target="_blank"
+    style="font-weight:bold;color:#141d70;font-size:16px;">{{object.link_to_site}}</a>
+</div>
+{% endblock %}
