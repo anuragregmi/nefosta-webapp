@@ -1,6 +1,9 @@
 from django.db import models
 
-class Publication(models.Model):
+from nefosta.models.abstract import BaseModel
+
+
+class Publication(BaseModel):
     title = models.CharField(max_length=150, unique=True)
     content = models.TextField()
 

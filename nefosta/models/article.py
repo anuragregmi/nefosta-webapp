@@ -5,19 +5,17 @@ from django.contrib.auth import get_user_model
 from django.db import models
 
 from config.settings.base import STATIC_URL
+from nefosta.models.abstract import BaseModel
 
 User = get_user_model()
 
 
-class Article(models.Model):
+class Article(BaseModel):
     title = models.CharField(max_length=100)
     content = models.TextField()
 
     photo = models.ImageField(blank=True, null=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-
-    posted_on = models.DateTimeField(auto_now_add=True)
-    updated_on = models.DateTimeField(auto_now=True)
 
     class Meta:
         ordering = ('-posted_on', 'title')

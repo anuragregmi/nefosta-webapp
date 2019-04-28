@@ -1,8 +1,10 @@
 from django.core.exceptions import ValidationError
 from django.db import models
 
+from nefosta.models.abstract import BaseModel
 
-class Contact(models.Model):
+
+class Contact(BaseModel):
     address = models.CharField(max_length=100)
     phone_number = models.CharField(max_length=15)
     email_address = models.EmailField()

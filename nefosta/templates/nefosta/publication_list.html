@@ -1,0 +1,12 @@
+{% extends 'utils/base.html' %}
+{% block title%}Publications{% endblock %}
+{% block body %}
+{% include 'utils/brand_title.html' with brand_title="Publications" %}
+<div class="container py-3">
+  {% for publication in object_list%}
+  {% include 'utils/publication_box.html' %}
+  {% empty %}
+  No publications
+  {% endfor %}
+</div>
+{% endblock %}

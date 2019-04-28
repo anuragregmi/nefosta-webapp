@@ -17,5 +17,5 @@ class EventDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["related_events"] = Event.objects.exclude(id=self.get_object().id).order_by(
-            '-posted_on').only('title')[:4]
+            '-posted_on').only('id', 'title')[:4]
         return context

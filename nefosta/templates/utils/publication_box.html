@@ -1,0 +1,13 @@
+<div class="jumbotron" style="background-color:#ffffff;padding-top:29px;padding-bottom:30px;">
+  <h1 style="font-family:'Averia Serif Libre', cursive;padding-left:39px;font-size:34px;color:#4b4c4d;">
+    {{publication.title}}
+  </h1>
+  <p style="font-family:'Source Sans Pro', sans-serif;font-size:17px;padding-left:39px;">
+    {{publication.content}}
+  </p>
+  <p>
+    <a class="btn btn-light" role="button" href="{% url 'nefosta:publication_detail' publication.id%}"
+      style="background-color:#a6c4e6;margin-left:39px;">Read more
+    </a>
+  </p>
+</div>
