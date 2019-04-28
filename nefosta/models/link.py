@@ -13,6 +13,11 @@ class LinkCategory(BaseModel):
 class Link(BaseModel):
     title = models.CharField(max_length=150)
     content = models.TextField(blank=True)
+    link = models.URLField(blank=False)
+    category = models.ForeignKey(
+        LinkCategory, related_name="links",
+        on_delete=models.CASCADE
+    )
 
     def __str__(self):
         return self.title
