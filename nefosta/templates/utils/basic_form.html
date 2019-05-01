@@ -1,10 +1,14 @@
 {% extends 'utils/base.html' %}
 
 {% block body %}
-<div class="col-md-4 mr-auto ml-auto">
-  <form class="card p-5 form" method="post">
-    {% csrf_token %}
-    {% include 'utils/bootstrap_form.html' %}
-  </form>
+<div class="py-3" style="background-color:#f7fbfc;">
+  <div class="{{ col_size|default:"col-md-4" }} mr-auto ml-auto">
+    <form class="card p-5 form" method="post">
+      {% csrf_token %}
+      {% include 'utils/bootstrap_form.html' %}
+    </form>
+  </div>
+</div>
+<div class="footer-clean">
 </div>
 {% endblock body %}

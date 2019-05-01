@@ -3,7 +3,7 @@ from nefosta.views.download import (DownloadCategoryListView,
                                     DownloadResouceListView)
 from nefosta.views.gallery import AlbumDetailView, AlbumListView
 from nefosta.views.link import LinkCategoryDetailView
-from nefosta.views.users import UserDetailView
+from nefosta.views.users import UserDetailView, UserUpdateView
 
 from .views.article import ArticleDetailView, ArticleListView
 from .views.career import CareerDetailView, CareerListView
@@ -49,5 +49,6 @@ urlpatterns = [
          name="album_detail"),
 
 
-    path("accounts/<int:pk>/", UserDetailView.as_view(), name="user_detail")
+    path("accounts/<int:pk>/", UserDetailView.as_view(), name="user_detail"),
+    path("accounts/<int:pk>/edit", UserUpdateView.as_view(), name="user_update")
 ]

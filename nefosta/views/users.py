@@ -1,6 +1,7 @@
+from django.shortcuts import reverse
 from django.contrib.auth import get_user_model
 from django.http import Http404
-from django.views.generic import DetailView
+from django.views.generic import DetailView, UpdateView
 from nefosta.models.article import Article
 
 User = get_user_model()
@@ -19,3 +20,18 @@ class UserDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         context["articles"] = Article.objects.filter(author=self.get_object())
         return context
+
+
+class UserUpdateView(UpdateView):
+    model = User
+    fields = ("first_name", "last_name", "username", "email",
+              "introduction", "profile_picture", "phone_number")
+    template_name = "utils/basic_form.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["col_size"] = "col-sm-6"
+        return context
+
+    def get_success_url(self):
+        return reverse('nefosta:user_detail', args=[self.get_object().id])
