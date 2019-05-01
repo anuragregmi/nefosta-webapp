@@ -32,6 +32,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'users',
+    'nefosta',
     'jet.dashboard',
     'jet',
 
@@ -43,7 +45,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
 
-    'nefosta',
 ]
 
 MIDDLEWARE = [
@@ -132,7 +133,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'public/static/')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'public/media/')
 
 
-AUTH_USER_MODEL = 'nefosta.User'
+AUTH_USER_MODEL = 'users.User'
 
 # jet configs
 JET_THEMES = [
@@ -167,3 +168,6 @@ JET_THEMES = [
         'title': 'Light Gray'
     }
 ]
+
+# LOGIN_URL = "/accounts/login/"
+LOGIN_REDIRECT_URL = '/'

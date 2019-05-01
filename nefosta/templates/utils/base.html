@@ -96,26 +96,20 @@
           </div>
         </form>
         <div id="login-details">
-          {% if request.user %}
+          {% if request.user.is_authenticated %}
           <div class="dropdown">
             <span class="dropdown-toggle navbar-font" id="xdropdownMenuButton" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">{{ request.user.get_full_name }}</span>
             <div class="dropdown-menu" aria-labelledby="xdropdownMenuButton">
-              <a class="dropdown-item navbar-font" href="#">Profile</a>
-              <a class="dropdown-item navbar-font" href="#" onClick="logout(); location.reload();">Logout</a>
+              <a class="dropdown-item navbar-font" href="{% url "nefosta:user_detail" request.user.id%}">Profile</a>
+              <a class="dropdown-item navbar-font" href="{% url "logout" %}">Logout</a>
             </div>
           </div>
 
           {% else %}
-          <span class="navbar-text" style="color:#126ea2;">
-            <a id="loginLink" href="#" class="login"
-              style="color:#126ea2;font-family:'Averia Serif Libre', cursive;font-weight:bold;font-size:17px;">Log
-              In</a>
-          </span>
           <button class="btn btn-link btn-sm" type="button"
             style="background-color:#a6c4e6;border-radius:15px;font-size:17px;font-family:'Averia Serif Libre', cursive;"><a
-              href="/users/signup/" style="color:rgb(255,255,255);font-size:17px;">Sign
-              Up</a>
+              href="{% url 'login' %}" style="color:rgb(255,255,255);font-size:17px;">Log In</a>
           </button>
           {% endif %}
         </div>

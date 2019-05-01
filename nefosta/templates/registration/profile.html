@@ -1,0 +1,55 @@
+{% extends "utils/base.html" %}
+{% block body %}
+<div class="article-dual-column" style="margin-top:0;background-color:#f7fbfc;padding-bottom:16px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-lg-7 offset-md-1 offset-lg-0" style="margin-top:20px;padding-left:92px;"><img
+          src="{{ object.profile_picture_url }}" style="width:130px;margin-top:14px;">
+        <div class="text">
+          <h2 class="mb-1"
+            style="font-family:'Averia Serif Libre', cursive;color:#141d70;margin-top:28px;font-size:29px;">
+            {{ object.get_full_name }}
+          </h2>
+          <span>{{ object.username }}</span>
+
+          <h2 style="font-family:'Averia Serif Libre', cursive;color:#141d70;">Introduction</h2>
+          <div>{{ object.introduction|linebreaks }}</div>
+        </div>
+      </div>
+      <div class="col-md-10 col-lg-3 offset-md-1"
+        style="/*border-left-style:solid;*/margin-top:51px;padding-left:52px;">
+        <div class="buttons"><a class="btn btn-light" role="button" href="User Profile Edit Profile.html">Edit
+            Profile</a><button class="btn btn-primary" type="button" style="background-color:#141d70;">Log
+            Out</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="article-list"></div>
+<div class="highlight-clean">
+  <div class="container">
+    <div class="intro">
+      <h2 class="text-center" style="font-family:'Averia Serif Libre', cursive;">Create an Article</h2>
+      <p class="text-center" style="font-family:'Source Sans Pro', sans-serif;">Show your involvement in NEFOSTA by
+        writing an article!</p>
+    </div>
+    <div class="buttons"><a class="btn btn-primary" role="button" href="Article Writing Page.html"
+        style="background-color:#141d70;font-family:'Averia Serif Libre', cursive;">Start writing!</a></div>
+  </div>
+</div>
+<div class="footer-clean" style="padding-top:0px;padding-bottom:16px;">
+  <div class="container" style="padding-bottom:21px;">
+    <div class="intro" style="padding-top:0px;">
+      <hr>
+      <h2 class="text-center"
+        style="font-family:'Averia Serif Libre', cursive;color:#141d70;padding-top:29px;padding-bottom:29px;">Your
+        Articles</h2>
+    </div>
+    <div class="row articles" style="margin-top:-20px;">
+      {% for article in articles %}
+      {% include 'utils/article_box.html' %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock%}
