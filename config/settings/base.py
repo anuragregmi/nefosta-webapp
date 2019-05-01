@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'nefosta',
     'jet.dashboard',
     'jet',
+    'widget_tweaks',
 
     'django.contrib.admin',
     'django.contrib.auth',
