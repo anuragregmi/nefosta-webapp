@@ -26,4 +26,4 @@ class Article(BaseModel):
     @property
     def photo_url(self):
         return self.photo.url if self.photo else \
-            os.path.join(settings.STATIC_URL, 'img/beach.jpg')
+            os.path.join(settings.STATIC_URL, 'img/default-article.jpg')
