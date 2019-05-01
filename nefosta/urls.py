@@ -1,10 +1,12 @@
 from django.urls import path
+from nefosta.views.download import (DownloadCategoryListView,
+                                    DownloadResouceListView)
 from nefosta.views.link import LinkCategoryDetailView
 
 from .views.article import ArticleDetailView, ArticleListView
 from .views.career import CareerDetailView, CareerListView
 from .views.events import EventDetailView, EventListView
-from .views.nefosta import AboutView,  ContactView, IndexView
+from .views.nefosta import AboutView, ContactView, IndexView
 from .views.publication import PublicationDetailView, PublicationListView
 
 app_name = "nefosta"
@@ -33,4 +35,9 @@ urlpatterns = [
     path("careers/", CareerListView.as_view(), name="career_list"),
     path("careers/<int:pk>/", CareerDetailView.as_view(),
          name="career_detail"),
+
+    path("downloads/", DownloadCategoryListView.as_view(),
+         name="download_category_list"),
+    path("downloads/<int:cat_id>/", DownloadResouceListView.as_view(),
+         name="download_resource_list"),
 ]

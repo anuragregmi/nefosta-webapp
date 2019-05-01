@@ -6,3 +6,4 @@ from .event import Event
 from .gallery import Album, Photo
 from .publication import Publication
 from .link import Link, LinkCategory
+from .download import DownloadCategory, DownloadResource

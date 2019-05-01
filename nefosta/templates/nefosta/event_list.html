@@ -20,24 +20,15 @@
       <p style="font-size:16px;font-family:'Averia Serif Libre', cursive;color:#126ea2;">
         Related Links</p>
       <ul class="list-group">
+        {% for link in link_chortategories%}
         <li class="list-group-item" style="height:40px;background-color:rgba(238,244,247,0.4);"><a
-            href="4a.Link Education.html"
-            style="font-family:'Source Sans Pro', sans-serif;font-size:17px;color:rgb(0,0,0);margin-left:10px;">Education</a>
+            href="{% url 'link_category_detail' link.id%}"
+            style="font-family:'Source Sans Pro', sans-serif;font-size:17px;color:rgb(0,0,0);margin-left:10px;">{{ link.title }}</a>
         </li>
-        <li class="list-group-item" style="height:40px;background-color:rgba(238,244,247,0.4);"><a
-            href="4b.Link Resources.html"
-            style="font-family:'Source Sans Pro', sans-serif;font-size:17px;color:rgb(0,0,0);margin-left:10px;">Online
-            Resources</a></li>
-        <li class="list-group-item" style="height:40px;background-color:rgba(238,244,247,0.4);"><a
-            href="4d.Link Food Colleges.html"
-            style="font-family:'Source Sans Pro', sans-serif;font-size:17px;color:rgb(0,0,0);margin-left:10px;">Food
-            Technology Colleges</a></li>
-        <li class="list-group-item" style="height:40px;background-color:rgba(238,244,247,0.4);"><a
-            href="4c.Link Funding Oppertunities.html"
-            style="font-family:'Source Sans Pro', sans-serif;font-size:17px;color:rgb(0,0,0);margin-left:10px;">Funding
-            Oppertunities</a></li>
+        {% empty %}
+        Nothing Here
+        {% endfor%}
       </ul>
     </div>
-
   </div>
   {% endblock %}

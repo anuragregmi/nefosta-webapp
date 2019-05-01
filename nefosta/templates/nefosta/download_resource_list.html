@@ -1,0 +1,42 @@
+{% extends 'utils/base.html' %}
+{% load nefosta_tags%}
+
+{% block body %}
+<div class="container py-3">
+  <div class="row">
+    <div class="col-md-8 col-sm-12" style="border-right-style:solid;">
+      <div class="text py-5">
+        <h2 style="font-family:'Averia Serif Libre', cursive;color:#126ea2;font-size:33px;">Downloads: {{ category }}
+        </h2>
+        <div>
+          {% for download_resource in object_list%}
+          <div class="py-2">
+            <h4> {{ download_resource.title }} </h3>
+              {% get_absolute_uri download_resource.url as absolute_uri %}
+              <a href="{{ absolute_uri }}">{{ absolute_uri }}</a>
+          </div>
+          {% empty %}
+          <p>Nothing here</p>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-12 p-3">
+      <div class="col-md-4 col-sm-12 p-3">
+        <p style="font-size:16px;font-family:'Averia Serif Libre', cursive;color:#126ea2;">
+          Related Links</p>
+        <ul class="list-group">
+          {% for download_category in related_categories%}
+          <li class="list-group-item p-2" style="height:40px;background-color:rgba(238,244,247,0.4);"><a
+              href="{% url 'nefosta:download_resource_list' download_category.id%}"
+              style="font-family:'Source Sans Pro', sans-serif;font-size:17px;color:rgb(0,0,0);margin-left:10px;">{{ download_category.title }}</a>
+          </li>
+          {% empty %}
+          Nothing Here
+          {% endfor%}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
