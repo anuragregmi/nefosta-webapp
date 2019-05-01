@@ -34,9 +34,5 @@ class UserUpdateView(LoginRequiredMixin, UpdateView):
         context["col_size"] = "col-sm-6"
         return context
 
-    def form_valid(self, *args, **kwargs):
-        print(self.request.FILES)
-        return super().form_valid(*args, **kwargs)
-
     def get_success_url(self):
         return reverse('nefosta:user_detail', args=[self.get_object().id])
