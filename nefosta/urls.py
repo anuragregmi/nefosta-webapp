@@ -1,6 +1,7 @@
 from django.urls import path
 from nefosta.views.download import (DownloadCategoryListView,
                                     DownloadResouceListView)
+from nefosta.views.gallery import AlbumDetailView, AlbumListView
 from nefosta.views.link import LinkCategoryDetailView
 
 from .views.article import ArticleDetailView, ArticleListView
@@ -40,4 +41,9 @@ urlpatterns = [
          name="download_category_list"),
     path("downloads/<int:cat_id>/", DownloadResouceListView.as_view(),
          name="download_resource_list"),
+
+    path("gallery/", AlbumListView.as_view(),
+         name="album_list"),
+    path("gallery/<int:album_id>/", AlbumDetailView.as_view(),
+         name="album_detail"),
 ]

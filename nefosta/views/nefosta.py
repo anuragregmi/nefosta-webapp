@@ -1,10 +1,21 @@
 from django.views.generic import TemplateView
-
 from nefosta.models.article import Article
 from nefosta.models.event import Event
+from nefosta.models.gallery import Photo
 
 
-class IndexView(TemplateView):
+class ImageCarouselMixin:
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+
+        ctx.update({
+            'carousel_images': Photo.objects.filter(show_in_carousel=True)}
+        )
+
+        return ctx
+
+
+class IndexView(ImageCarouselMixin, TemplateView):
     template_name = "nefosta/index.html"
 
     def get_context_data(self, **kwargs):
@@ -18,7 +29,7 @@ class IndexView(TemplateView):
         return ctx
 
 
-class AboutView(TemplateView):
+class AboutView(ImageCarouselMixin, TemplateView):
     template_name = "nefosta/about_us.html"
 
     def get_context_data(self, **kwargs):

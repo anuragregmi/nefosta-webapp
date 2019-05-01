@@ -1,0 +1,20 @@
+{% extends 'utils/base.html' %}
+
+{% block body %}
+{% include 'utils/brand_title.html' %}
+<div class="container py-3">
+  <div class="row">
+    <div class="col-md-10 col-lg-7 offset-md-1 offset-lg-0" style="margin-top:20px;padding-left:92px;">
+      <div class="text">
+        <h2 style="font-family:'Averia Serif Libre', cursive;color:#141d70;font-size:33px;">ALBUMS</h2>
+        <ul class="list-group">
+          {% for album in object_list %}
+          <li class="list-group-item" style="font-size:19px;"><a href="{% url 'nefosta:album_detail' album.id %}"
+              style="color:rgb(0,0,0);font-size:20px;">{{ album.name }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
