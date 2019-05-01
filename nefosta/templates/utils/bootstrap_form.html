@@ -1,8 +1,10 @@
+{% comment %} From simpleisbetterthancomplex
+https://simpleisbetterthancomplex.com/article/2017/08/19/how-to-render-django-form-manually.html#rendering-bootstrap-4-forms
+{% endcomment %}
 {% load widget_tweaks %}
 
-<form method="post" novalidate>
+<form method="post" enctype="multipart/form-data" class=" card p-5 form" novalidate>
   {% csrf_token %}
-
   {% for hidden_field in form.hidden_fields %}
   {{ hidden_field }}
   {% endfor %}
@@ -40,6 +42,5 @@
   </div>
   {% endfor %}
 
-  <button type="submit" class="btn btn-primary">{{ submit_text|default:"Submit" }}
-  </button>
+  <input type="submit" class="btn btn-primary" value="{{ submit_text|default:'Submit' }}">
 </form>

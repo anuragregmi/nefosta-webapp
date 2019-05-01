@@ -1,4 +1,5 @@
 from django.shortcuts import reverse
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import get_user_model
 from django.http import Http404
 from django.views.generic import DetailView, UpdateView
@@ -7,7 +8,7 @@ from nefosta.models.article import Article
 User = get_user_model()
 
 
-class UserDetailView(DetailView):
+class UserDetailView(LoginRequiredMixin, DetailView):
     model = User
     template_name = "registration/profile.html"
 
@@ -22,7 +23,7 @@ class UserDetailView(DetailView):
         return context
 
 
-class UserUpdateView(UpdateView):
+class UserUpdateView(LoginRequiredMixin, UpdateView):
     model = User
     fields = ("first_name", "last_name", "username", "email",
               "introduction", "profile_picture", "phone_number")
@@ -32,6 +33,10 @@ class UserUpdateView(UpdateView):
         context = super().get_context_data(**kwargs)
         context["col_size"] = "col-sm-6"
         return context
+
+    def form_valid(self, *args, **kwargs):
+        print(self.request.FILES)
+        return super().form_valid(*args, **kwargs)
 
     def get_success_url(self):
         return reverse('nefosta:user_detail', args=[self.get_object().id])

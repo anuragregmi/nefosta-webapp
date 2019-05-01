@@ -1,4 +1,5 @@
 from django.urls import path
+from nefosta.views.article import ArticleCreateView
 from nefosta.views.download import (DownloadCategoryListView,
                                     DownloadResouceListView)
 from nefosta.views.gallery import AlbumDetailView, AlbumListView
@@ -19,6 +20,7 @@ urlpatterns = [
     path("contact/", ContactView.as_view(), name="contact"),
 
     path("articles/", ArticleListView.as_view(), name="article_list"),
+    path("articles/create/", ArticleCreateView.as_view(), name="article_create"),
     path("articles/<int:pk>/", ArticleDetailView.as_view(),
          name="article_detail"),
 
