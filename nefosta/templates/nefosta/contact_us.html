@@ -1,0 +1,18 @@
+{% extends 'utils/base.html' %}
+
+{% block body %}
+{% include 'utils/brand_title.html' %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-lg-7 offset-md-1 offset-lg-0" style="margin-top:20px;padding-left:92px;">
+      <div class="text">
+        <h2 style="font-family:'Averia Serif Libre', cursive;color:#141d70;font-size:25px;">CONTACT US</h2><a href="#"
+          style="font-size:25px;">{{ contact.address }}</a>
+        <p style="font-family:'Source Sans Pro', sans-serif;font-size:25px;color:rgb(0,0,0);margin-top:14px;">Phone: <a
+            href="#">{{ contact.phone_number }}</a></p>
+        <p style="font-family:'Source Sans Pro', sans-serif;font-size:25px;color:rgb(0,0,0);">Email:<a
+            href="#">{{ contact.email_address }}</a></p>
+      </div>
+    </div>
+  </div>
+  {% endblock %}

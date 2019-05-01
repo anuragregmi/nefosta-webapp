@@ -29,3 +29,7 @@ class AboutView(TemplateView):
         })
 
         return ctx
+
+
+class ContactView(TemplateView):
+    template_name = "nefosta/contact_us.html"
