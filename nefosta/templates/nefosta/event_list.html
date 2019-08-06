@@ -20,9 +20,9 @@
       <p style="font-size:16px;font-family:'Averia Serif Libre', cursive;color:#126ea2;">
         Related Links</p>
       <ul class="list-group">
-        {% for link in link_chortategories%}
+        {% for link in link_categories%}
         <li class="list-group-item" style="height:40px;background-color:rgba(238,244,247,0.4);"><a
-            href="{% url 'link_category_detail' link.id%}"
+            href="{% url 'nefosta:link_category_detail' link.id%}"
             style="font-family:'Source Sans Pro', sans-serif;font-size:17px;color:rgb(0,0,0);margin-left:10px;">{{ link.title }}</a>
         </li>
         {% empty %}
