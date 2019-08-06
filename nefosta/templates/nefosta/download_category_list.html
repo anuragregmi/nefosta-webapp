@@ -16,19 +16,17 @@
         </div>
       </div>
       <div class="col-md-4 col-sm-12 p-3">
-        <div class="col-md-4 col-sm-12 p-3">
-          <p style="font-size:16px;font-family:'Averia Serif Libre', cursive;color:#126ea2;">
-            Related Categories</p>
-          <ul class="list-group">
-            {% for link in link_categories%}
-            <li class="list-group-item" style=""><a href="{% url 'nefosta:link_category_detail' link.id%}"
-                style="font-family:'Source Sans Pro'">{{ link.title }}</a>
-            </li>
-            {% empty %}
-            Nothing Here
-            {% endfor%}
-          </ul>
-        </div>
+        <p style="font-size:16px;font-family:'Averia Serif Libre', cursive;color:#126ea2;">
+          Related Categories</p>
+        <ul class="list-group">
+          {% for link in link_categories%}
+          <li class="list-group-item" style=""><a href="{% url 'nefosta:link_category_detail' link.id%}"
+              style="font-family:'Source Sans Pro'">{{ link.title }}</a>
+          </li>
+          {% empty %}
+          Nothing Here
+          {% endfor%}
+        </ul>
       </div>
     </div>
   </div>
