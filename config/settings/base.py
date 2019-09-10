@@ -172,3 +172,5 @@ JET_THEMES = [
 
 # LOGIN_URL = "/accounts/login/"
 LOGIN_REDIRECT_URL = '/'
+
+FILE_UPLOAD_PERMISSIONS = 0o644
