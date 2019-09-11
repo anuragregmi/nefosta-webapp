@@ -11,6 +11,7 @@ class AlbumListView(ListView):
 class AlbumDetailView(ListView):
     model = Photo
     template_name = 'nefosta/album_detail.html'
+    paginate_by = 10
 
     def get_queryset(self):
         return super().get_queryset().filter(
