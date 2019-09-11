@@ -9,7 +9,7 @@ from nefosta.models.article import Article
 class ArticleListView(ListView):
     model = Article
     template_name = "nefosta/article_list.html"
-    page_size = 10
+    paginate_by = 9
 
 
 class ArticleDetailView(DetailView):

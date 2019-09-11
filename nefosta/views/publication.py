@@ -7,7 +7,7 @@ from nefosta.models.publication import Publication
 class PublicationListView(ListView):
     model = Publication
     template_name = "nefosta/publication_list.html"
-    page_size = 10
+    paginate_by = 10
 
 
 class PublicationDetailView(DetailView):

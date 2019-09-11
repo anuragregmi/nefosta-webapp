@@ -6,7 +6,7 @@ from nefosta.models.career import Career
 class CareerListView(ListView):
     model = Career
     template_name = "nefosta/career_list.html"
-    page_size = 10
+    paginate_by = 10
 
 
 class CareerDetailView(DetailView):

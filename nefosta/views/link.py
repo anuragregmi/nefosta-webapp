@@ -9,7 +9,7 @@ from nefosta.models.link import Link, LinkCategory, FoodTechnologyCollege
 class LinkCategoryDetailView(ListView):
     model = Link
     template_name = "nefosta/link_detail.html"
-    page_size = 10
+    paginate_by = 10
 
     def get_queryset(self):
         queryset = super().get_queryset()
@@ -34,4 +34,4 @@ class LinkCategoryDetailView(ListView):
 class FoodTechnologyCollegeView(ListView):
     model = FoodTechnologyCollege
     template_name = "nefosta/college_list.html"
-    paze_size = 10
+    paginate_by = 10

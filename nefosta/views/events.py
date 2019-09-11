@@ -7,7 +7,7 @@ from nefosta.models.event import Event
 class EventListView(ListView):
     model = Event
     template_name = "nefosta/event_list.html"
-    page_size = 10
+    paginate_by = 10
 
 
 class EventDetailView(DetailView):
