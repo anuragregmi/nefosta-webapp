@@ -5,7 +5,7 @@ from nefosta.models.gallery import Album, Photo
 class AlbumListView(ListView):
     model = Album
     template_name = 'nefosta/album_list.html'
-    paginate_by = 20
+    paginate_by = 10
 
 
 class AlbumDetailView(ListView):
