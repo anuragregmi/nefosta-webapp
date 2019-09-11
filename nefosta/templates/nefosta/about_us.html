@@ -20,6 +20,8 @@
         </div><a href="{% url 'nefosta:event_list' %}"
           style="font-family:'Averia Serif Libre', cursive;color:#126ea2;margin-left:-13px;">View All..</a>
       </div>
+      {% load cache%}
+      {% cache None about %}
       <div class="col-md-10 col-lg-7 offset-md-1 offset-lg-0" style="margin-top:20px;padding-left:92px;">
         <div class="text">
           <h2 style="font-family:'Averia Serif Libre', cursive;color:#141d70;">About NEFOSTA</h2>
@@ -44,6 +46,7 @@
             for all within the country.&nbsp; &nbsp; &nbsp;&nbsp;<br></p>
         </div>
       </div>
+      {% endcache %}
     </div>
   </div>
 </div>

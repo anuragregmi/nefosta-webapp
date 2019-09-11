@@ -121,6 +121,9 @@
     {% block body%}
     {% endblock %}
   </div>
+
+  {% load cache %}
+  {% cache 500 footer %}
   <footer class="footer-clean" style="background-color:#f7fbfc;padding-top:16px;padding-bottom:16px;margin-left:0px;">
     <div class="container">
       <div class="row justify-content-center">
@@ -159,6 +162,7 @@
             style="height:29px;margin-left:4px;"></a></p>
     </footer>
   </div>
+  {% endcache %}
 
   <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
