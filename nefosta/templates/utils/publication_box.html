@@ -3,8 +3,9 @@
     {{publication.title}}
   </h1>
   <p style="font-family:'Source Sans Pro', sans-serif;font-size:17px;padding-left:39px;">
-    {{publication.content}}
+    {{publication.content|truncatechars:150|linebreaksbr}}
   </p>
+  <p style="font-size:17px;padding-left:39px;">Link: <a href="{{publication.url}}">{{publication.url}}</a></p>
   <p>
     <a class="btn btn-light" role="button" href="{% url 'nefosta:publication_detail' publication.id%}"
       style="background-color:#a6c4e6;margin-left:39px;">Read more
