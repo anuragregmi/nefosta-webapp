@@ -1,0 +1,16 @@
+{% extends 'utils/base.html' %}
+
+{% block title%} Food Technlogoy Colleges in Nepal {% endblock %}
+
+{% block body %}
+{% include "utils/brand_title.html" with brand_title="FOOD TECHNOLOGY COLLEGES IN NEPAL"%}
+<div class="container article-list">
+  <div class="row articles">
+    {% for college in object_list %}
+    {% include 'utils/college_box.html' %}
+    {% empty %}
+    Nothing here at the moment.
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

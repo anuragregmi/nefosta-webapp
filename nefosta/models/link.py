@@ -21,3 +21,13 @@ class Link(BaseModel):
 
     def __str__(self):
         return self.title
+
+
+class FoodTechnologyCollege(BaseModel):
+    name = models.CharField(max_length=150)
+    description = models.TextField(blank=True)
+    link = models.URLField(blank=False)
+    image = models.ImageField(upload_to='colleges/')
+
+    def __str__(self):
+        return self.name

@@ -1,0 +1,8 @@
+<div class="col-sm-6 col-md-4 item"><a href="#">
+    <img class="img-fluid" src="{{ college.image.url }}" style="height: 250px"></a>
+  <h3 class="name" style="font-family:'Averia Serif Libre', cursive;color:#126ea2;">
+    {{college.name}}</h3>
+  <p class="description" style="font-family:'Source Sans Pro', sans-serif;font-size:15px;color:rgb(0,0,0);">
+    {{ college.description|truncatechars:150|linebreaksbr }}</p><a href="{{college.link}}" target="_blank"
+    class="action"><i class="fa fa-angle-double-right" style="font-size:33px;color:#126ea2;"></i></a>
+</div>

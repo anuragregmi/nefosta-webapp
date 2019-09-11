@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404
 from django.utils.functional import cached_property
 from django.views.generic import ListView
 
-from nefosta.models.link import Link, LinkCategory
+from nefosta.models.link import Link, LinkCategory, FoodTechnologyCollege
 
 
 class LinkCategoryDetailView(ListView):
@@ -29,3 +29,9 @@ class LinkCategoryDetailView(ListView):
     @cached_property
     def category(self):
         return get_object_or_404(LinkCategory, id=self.kwargs.get('cat_id'))
+
+
+class FoodTechnologyCollegeView(ListView):
+    model = FoodTechnologyCollege
+    template_name = "nefosta/college_list.html"
+    paze_size = 10

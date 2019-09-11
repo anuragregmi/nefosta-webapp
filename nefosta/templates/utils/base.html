@@ -71,9 +71,9 @@
               {% for link_category in link_categories %}
               <a class="dropdown-item" role="presentation"
                 href="{% url 'nefosta:link_category_detail' link_category.id%}">{{link_category.title}}</a>
-              {% empty %}
-              <a class="dropdown-item disabled" role="presentation" href="#">No Links</a>
               {% endfor %}
+              <a class="dropdown-item" role="presentation" href="{% url 'nefosta:college_list' %}">Food Technology
+                College In Nepal</a>
             </div>
           </li>
           <li class="nav-item" role="presentation">

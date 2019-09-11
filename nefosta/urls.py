@@ -3,7 +3,7 @@ from nefosta.views.article import ArticleCreateView
 from nefosta.views.download import (DownloadCategoryListView,
                                     DownloadResouceListView)
 from nefosta.views.gallery import AlbumDetailView, AlbumListView
-from nefosta.views.link import LinkCategoryDetailView
+from nefosta.views.link import LinkCategoryDetailView, FoodTechnologyCollegeView
 from nefosta.views.users import UserDetailView, UserUpdateView
 
 from .views.article import ArticleDetailView, ArticleListView
@@ -33,6 +33,8 @@ urlpatterns = [
     path("publications/<int:pk>/", PublicationDetailView.as_view(),
          name="publication_detail"),
 
+    path("links/colleges/", FoodTechnologyCollegeView.as_view(),
+         name="college_list"),
     path("links/<int:cat_id>/", LinkCategoryDetailView.as_view(),
          name="link_category_detail"),
 
